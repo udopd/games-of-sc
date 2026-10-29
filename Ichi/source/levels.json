@@ -1,0 +1,443 @@
+[
+  {
+    "rows": [
+      "#######",
+      "#     #",
+      "#  #  #",
+      "# .  .#",
+      "# $$  #",
+      "#  @  #",
+      "#######"
+    ],
+    "pushes": 4,
+    "states": 0,
+    "goals": 2,
+    "pulls": 24,
+    "solution": "UDLLUURRLUURRDDLLLDRDRRUDLLURDRRUULLRUULLDDRDDRULDLURRURUULLLDDLDRDRURULDLLUURDLDRRLUUURRDRDLRDDLLURULRDDRU"
+  },
+  {
+    "rows": [
+      "#######",
+      "#     #",
+      "# @$  #",
+      "# #   #",
+      "#  $  #",
+      "#  .. #",
+      "#######"
+    ],
+    "pushes": 5,
+    "states": 0,
+    "goals": 2,
+    "pulls": 19,
+    "solution": "RURDRDDLLUURDLULLDDRDRRUUDDLURRUULLDRDLUUULLDRLDDRDRRUULDRUUULDLLDDRDRURUULDDLL"
+  },
+  {
+    "rows": [
+      "########",
+      "#    @ #",
+      "#  # $ #",
+      "#  .# .#",
+      "# #  $ #",
+      "#      #",
+      "########"
+    ],
+    "pushes": 5,
+    "states": 0,
+    "goals": 2,
+    "pulls": 17,
+    "solution": "DRDDLUDDLLURDRRULRUUULDRDDLUDDLLURDRRULLRRUUULDDRDDLUURUULLDRDDLDLURRUUURDLL"
+  },
+  {
+    "rows": [
+      "########",
+      "#  $@. #",
+      "# ## $ #",
+      "#  ##  #",
+      "#      #",
+      "#   .  #",
+      "########"
+    ],
+    "pushes": 6,
+    "states": 0,
+    "goals": 2,
+    "pulls": 12,
+    "solution": "LRRDDRDDLLLLLUUUURLDDRDRRDRRUULDUULULRRRDDDDLULLLLUUURLDDRDRDRLLLUUUURRRDRRDDDLRUUU"
+  },
+  {
+    "rows": [
+      "########",
+      "#. @.  #",
+      "#  $   #",
+      "#    # #",
+      "#    # #",
+      "# #$ # #",
+      "#      #",
+      "########"
+    ],
+    "pushes": 8,
+    "states": 0,
+    "goals": 2,
+    "pulls": 28,
+    "solution": "DRDLDLULDDDRRUULLUURRDDUUURRDLULDRDDDDLUDLLUURRLUURRDLULDRDDRUUULLLDDRLDDRRUUURULULDLDRDRURULDLURULRDR"
+  },
+  {
+    "rows": [
+      "########",
+      "#      #",
+      "# $ $# #",
+      "# #  . #",
+      "#  .#  #",
+      "# @$   #",
+      "#.     #",
+      "########"
+    ],
+    "pushes": 8,
+    "states": 0,
+    "goals": 3,
+    "pulls": 26,
+    "solution": "RRDRURUULDRDLLLDLURULDLUUDRRUUULLDRLDURURRDULLDRDDDRRUULRRUULLLLLDDDUURRDDLLDRDRRULDLURUUUURDLDRLULLDDRDRR"
+  },
+  {
+    "rows": [
+      "########",
+      "#  . . #",
+      "#    $ #",
+      "# $#$  #",
+      "#   @# #",
+      "#  ##  #",
+      "#     .#",
+      "########"
+    ],
+    "pushes": 9,
+    "states": 0,
+    "goals": 3,
+    "pulls": 23,
+    "solution": "UDLLLUURDURURRRDDLURDDDLDLLLUURRURRUULLLDRRLDDLLUDRRURUURDDLLDLLLUURRURDLLDDRRURULRRDDULLDLLUURLDDRRUULURLDLLURDRRRRDDDUU"
+  },
+  {
+    "rows": [
+      "#########",
+      "#    .  #",
+      "# $   . #",
+      "#    $  #",
+      "# ###@  #",
+      "# #   $ #",
+      "#.      #",
+      "#########"
+    ],
+    "pushes": 10,
+    "states": 0,
+    "goals": 3,
+    "pulls": 26,
+    "solution": "URULDDDDRUUULUURDLDDRULUURDLULLDLRDRRDRURULULLLLLDDRRUURRDULLLLDDDURRURURRDDDLDLLDLLUUDDRRRRRUUUULULLDDRRDRULLLLULDRRURLLLDDDUURRRRULLU"
+  },
+  {
+    "rows": [
+      "#########",
+      "#.      #",
+      "# ###$  #",
+      "#.      #",
+      "# @$ ##$#",
+      "#    ## #",
+      "#      .#",
+      "#########"
+    ],
+    "pushes": 10,
+    "states": 0,
+    "goals": 3,
+    "pulls": 16,
+    "solution": "RURDURRRDULLLLDDDRUULLLUUURRRRRDDLLLRRRRDDUULLURULLRDDLLDLLURDRRURUULLLRRRDDLLL"
+  },
+  {
+    "rows": [
+      "#########",
+      "#       #",
+      "#  $# # #",
+      "# #@ ## #",
+      "#  $##  #",
+      "#  .    #",
+      "#..  $  #",
+      "#########"
+    ],
+    "pushes": 10,
+    "states": 0,
+    "goals": 3,
+    "pulls": 12,
+    "solution": "DLDDRRULULLUURURDURRRRDDDLDDLLULULLUURRDUURRRRDDDLDLLDLRRRRUUUUULLLLDDDUUURRRRDDDLDLLDLLRRRRRUUUUULLLLDDDLDRDRRULRRRUUUULLLLDDDLD"
+  },
+  {
+    "rows": [
+      "#########",
+      "#       #",
+      "#  #  $ #",
+      "#       #",
+      "#..#    #",
+      "#.$@ #  #",
+      "#  $#   #",
+      "#       #",
+      "#########"
+    ],
+    "pushes": 11,
+    "states": 0,
+    "goals": 3,
+    "pulls": 19,
+    "solution": "LULDRRRURRRUULLDLLLDDDDRULDLURUUUUURRDRDLLRUULLLDDDRULDDUUUURDURRDDLLDDDDLURUUURRDDLRUULLDLDURURRDDLDLUDDLURRURUULLULDRRRRRRU"
+  },
+  {
+    "rows": [
+      "#########",
+      "#    .  #",
+      "#   ##  #",
+      "#  ## #*#",
+      "#    .  #",
+      "#@$  ## #",
+      "# $#  # #",
+      "#       #",
+      "#########"
+    ],
+    "pushes": 12,
+    "states": 1,
+    "goals": 3,
+    "pulls": 22,
+    "solution": "RUUURURRRRDDDLLLDDDLLUDRRUUURRRDULLLDDDLLUUURRDDRDRRUDLLLLLUUUUUDDRRRRRDULLLLLLUUURDDDDRLUUUURLDDDDDDRRUULURRLLLUURURLLDDDRRDDRDRRUUULRDDDLLLLLLUUUU"
+  },
+  {
+    "rows": [
+      "#########",
+      "#      .#",
+      "# # #   #",
+      "#.    # #",
+      "#.$#@$  #",
+      "#  # #  #",
+      "#   $ # #",
+      "#       #",
+      "#########"
+    ],
+    "pushes": 12,
+    "states": 0,
+    "goals": 3,
+    "pulls": 24,
+    "solution": "RUURRDDDDDLLULLRRDRRUUULRDDDLLLLLLURDRRULRUURRLLULLLDDRULUUURRDDLDLDDRUUURUULLDDRRRRDRDRUUDLLLULLDDLUURRRRURURDLLDLDDDLRUURRRUDLLLDDLLDLURRRUURRRUULLDLLLDDDLURUURUULLDURRRRRDRDDDD"
+  },
+  {
+    "rows": [
+      "##########",
+      "#    @  .#",
+      "# #  $ # #",
+      "#   . .  #",
+      "#     ## #",
+      "# $$  ## #",
+      "#    # # #",
+      "#        #",
+      "##########"
+    ],
+    "pushes": 13,
+    "states": 0,
+    "goals": 3,
+    "pulls": 23,
+    "solution": "DLDDDDLLUDRRURUULLDDLDRDRUULLLURURRDUURLLDLDDRDRUUDLURUDLUUDLLUURRDDRRUURDLDLLUURRLDRURRLLLLDDLDD"
+  },
+  {
+    "rows": [
+      "##########",
+      "#   .    #",
+      "# # # ## #",
+      "#  $ ## .#",
+      "#.  ## # #",
+      "#      # #",
+      "#   $ $@ #",
+      "#        #",
+      "##########"
+    ],
+    "pushes": 13,
+    "states": 0,
+    "goals": 3,
+    "pulls": 19,
+    "solution": "LDLLURRLLLUUUUDDDRLLLUUUURRDDDDRDRRULLLULDRDLDLURRRRRRDRUUDLLLLLLLURRRRRDRRUUDDLLLLLUUUUU"
+  },
+  {
+    "rows": [
+      "##########",
+      "#      @ #",
+      "#$   ##$ #",
+      "# #      #",
+      "#     .$ #",
+      "# #   ## #",
+      "#.$  .#  #",
+      "#   .    #",
+      "##########"
+    ],
+    "pushes": 14,
+    "states": 0,
+    "goals": 4,
+    "pulls": 24,
+    "solution": "DRDLLDLLLLLDDRDRRRUUURULDLDDLUUUULULDRRRDLDLLDDRDRRRRRRUUULULLDDLDLUUURDDLDRLDLLURLUURRUULLDURRRDRDDDUUURRDLULLLULLDDDURRRRLDDDLLURURRUURRRDDDLDLLUULLDRURU"
+  },
+  {
+    "rows": [
+      "##########",
+      "#. *.    #",
+      "# ####   #",
+      "#        #",
+      "#  @$  $ #",
+      "#        #",
+      "# .$   # #",
+      "#        #",
+      "##########"
+    ],
+    "pushes": 13,
+    "states": 1,
+    "goals": 4,
+    "pulls": 21,
+    "solution": "RDDLRRRURUUULULLLRRRDRRULDLDDLDLULLLDDRDRULLUUUUURLDDRRDRRRRUUULDDLLLDDUULRRRRUULRDDLLLLDLUUDRRRDDDLRRRU"
+  },
+  {
+    "rows": [
+      "##########",
+      "#    $ . #",
+      "# #    @ #",
+      "#     #$ #",
+      "# ### $  #",
+      "# #      #",
+      "# $   #  #",
+      "#   .  ..#",
+      "##########"
+    ],
+    "pushes": 14,
+    "states": 0,
+    "goals": 4,
+    "pulls": 20,
+    "solution": "DULLLURRDRDDUULLLLDLLDDDRRURRUUURRDDDLLURDRDRUUULDRUUULDDDDLLDLRUUUUURLDDDDLLDRRURRRUUUULDLLDDDDDRRLLUUUUUURLDDDDLLDLDRURRURRDULLLLDLD"
+  },
+  {
+    "rows": [
+      "##########",
+      "#       .#",
+      "# #$  $  #",
+      "#      . #",
+      "#  # # $ #",
+      "# # #@#  #",
+      "#    $##.#",
+      "# ##     #",
+      "#       .#",
+      "##########"
+    ],
+    "pushes": 16,
+    "states": 0,
+    "goals": 4,
+    "pulls": 24,
+    "solution": "DLLLLUURURRRRRULRRDDDDDLLLULDULLLDDRRRLLLUUUURURRURLDLLLDDDRRRDDRLLLLUUUURURURULDDLLDDDRRRRDDRURRUUUULLLURURDLDDRLULLLLLUURLDDRRRRRURRDLRDLUULLLLDLLUURRDRRDRDRRDLULULLLUURRLLLLDDDDDRRRRDRDRLLLLLLUUUURURRRUURRLLLLLLDDDDDRRRRDRRD"
+  },
+  {
+    "rows": [
+      "##########",
+      "#       .#",
+      "#   # ## #",
+      "# ###* #.#",
+      "#  #  ## #",
+      "#  # $#  #",
+      "#        #",
+      "# @$  *  #",
+      "#        #",
+      "##########"
+    ],
+    "pushes": 16,
+    "states": 2,
+    "goals": 4,
+    "pulls": 24,
+    "solution": "RURUURUDLDDLDRDRULURRLDDRRULURLDDLULURLUURUUDDLDDRRDRRUDLLLLLLLUUUUURRURRDDDLDDRRDRRUULDRDLULLULDLLLUUUURRURRRLLLLLDDDRDDRRRRRRUUDLDLLDRLUUULDDLLLUUUURRURRRRLLLLLLDDDRDDRRRRRRDLDLL"
+  },
+  {
+    "rows": [
+      "###########",
+      "#    .    #",
+      "#    .    #",
+      "# #$ ###  #",
+      "#  @ . #  #",
+      "# $     # #",
+      "#   # $ # #",
+      "#  .  $   #",
+      "###########"
+    ],
+    "pushes": 16,
+    "states": 0,
+    "goals": 4,
+    "pulls": 28,
+    "solution": "UDLLDRURRUULRDDDLRRRRDDLUDLUULLULLDRLUUURURRDDDRRDLLULLDDRURRDDRULULUUULRDDDLURRDDRRULULLLLLUURURRDDDDRLUUUULLDRLLDDRRRRDDRRULLULLLLUURRRDDLDRLUURDRRDDLDLRRUUULLUUULLDRDRDRRDDLULUUULURLDDDDD"
+  },
+  {
+    "rows": [
+      "###########",
+      "#  ..    .#",
+      "#   $##   #",
+      "#    #### #",
+      "#      #  #",
+      "# $ ##    #",
+      "#   #  #$ #",
+      "#.    $@  #",
+      "###########"
+    ],
+    "pushes": 17,
+    "states": 0,
+    "goals": 4,
+    "pulls": 27,
+    "solution": "LLRUUULLLLLDRURRRRDDLDLRRUUULLLLDDRULUURRDRRDDDRRUDLLUUULLULLDDDDRLUUUURRDLRRRDDLDLRRUUULLLDLUDDDRUUUUUURRRRRRDDDLDLLULLLLURRDRRDDLDLLRRRRRUDLLUURRDRULLLULLLLLUURDRDDDDLRRRRRRRUUULDLLULLLLUUURRDULLDDRDRRRDRRRUUDLDLLULLUUDDRRDRRRUUUDDLDLLULLLUURDDRRDRRRU"
+  },
+  {
+    "rows": [
+      "###########",
+      "#.   $    #",
+      "#       $@#",
+      "# #  ## # #",
+      "#   ##    #",
+      "#  # #  # #",
+      "#$##. .   #",
+      "#  #   $  #",
+      "#.        #",
+      "###########"
+    ],
+    "pushes": 16,
+    "states": 0,
+    "goals": 4,
+    "pulls": 28,
+    "solution": "LULDRRDDDDLDLRRUUUUULLLULRRDDULLLLLLDDDDURURURURRRRRDDDDLLLUURDDDLRUUUUULLLLURDRRRRRDDLRUULLLULLLRRRRRRDDDDDLLLLLDDLLLURDRRRRUUUURUULLLLLLDDDDURURURURRRRRDDLRDDLLLLLDDLLLURDRRRRRRRUUUUUULLDDDDLDDRULLRRRULUUUULLLLULRRRRRDDDDDDLLDLURRRUUUUULLLLLLDDDDDRDRRRRRRUU"
+  },
+  {
+    "rows": [
+      "###########",
+      "#   .     #",
+      "# $## ### #",
+      "#     #   #",
+      "# $ # $@$ #",
+      "#      #  #",
+      "# #. # ## #",
+      "#  .  . # #",
+      "#         #",
+      "###########"
+    ],
+    "pushes": 17,
+    "states": 0,
+    "goals": 4,
+    "pulls": 29,
+    "solution": "LRURRDLRDDDDLLLUUULUDLLLLUUUURRRRDDDRDLUUUURRRRDDLDLRRUUULLLLDDDDLRUULLDDDRDRRRDRRUUULULLDLLDDDLURUULDUUURRDRDDDLLDLLURDRULUUUULUDRDDRRLLLLURURDDRRURDLLDULLLUUUURLDDDDDDRRDRRULLDLLURLUURUUUURLDDRRRDRDDULL"
+  },
+  {
+    "rows": [
+      "###########",
+      "#   .     #",
+      "# $ $@$   #",
+      "#  ## ##. #",
+      "# ##  #   #",
+      "#   # ## .#",
+      "# # ###   #",
+      "# # ##    #",
+      "# $   .   #",
+      "###########"
+    ],
+    "pushes": 18,
+    "states": 0,
+    "goals": 4,
+    "pulls": 28,
+    "solution": "RRURDDULLLULLDRURRRRRDDDDLURUULLLULLLLLDRURRDRURRRRDDDLURUULLLLLDLULLDDRULURRDRRURRDRLULLDRRLLLLLLDDDDDDRRLLUUUUURURRRULRRRRDLLLLULRRRRRRDDULLLLLLLLDDDRRDDDRLLLUUUUUUURLDDDDRRDDDRRLLLLUUUUURURRRRRRRDDUULLLLLLLURDRRRR"
+  }
+]

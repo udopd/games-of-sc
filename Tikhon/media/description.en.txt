@@ -1,0 +1,1 @@
+Tikhon 2048 is a cozy lo-fi number-merging puzzle featuring Tikhon the British Shorthair cat. Swipe or use the arrow keys to combine matching tiles and reach 2048. Enjoy soft pixel art, smooth animations, undo, high scores, and cloud saves for signed-in SUPER CUBE Games Platform players. Designed for mobile and desktop.

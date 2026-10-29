@@ -1,0 +1,17 @@
+{
+  "image": "tikhon-walk-atlas.png",
+  "width": 512,
+  "height": 256,
+  "columns": 4,
+  "rows": 2,
+  "frameCount": 8,
+  "order": "row-major",
+  "frameDurationMs": 70,
+  "loop": true,
+  "direction": "right",
+  "transparent": true,
+  "sampling": "nearest",
+  "note": "Compact pixel atlas, 4 columns by 2 rows, 128x128 pixels per frame.",
+  "frameWidth": 128,
+  "frameHeight": 128
+}

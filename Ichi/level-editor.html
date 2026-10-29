@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e5">
+  <title>Редактор уровней — Ичи и коробочки</title>
+  <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+  <link rel="stylesheet" href="assets/css/level-editor.css">
+  <script defer src="assets/js/level-editor-bootstrap.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="back-link" href="index.html">← Ичи</a>
+    <div class="heading">
+      <span class="eyebrow">ИНСТРУМЕНТЫ ICHI</span>
+      <h1>Редактор уровней</h1>
+    </div>
+    <div class="chapter-switch" role="group" aria-label="Выбрать главу">
+      <button type="button" class="chapter-button active" data-chapter="1">Глава 1</button>
+      <button type="button" class="chapter-button" data-chapter="2">Глава 2</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="level-sidebar">
+      <div class="sidebar-head">
+        <div>
+          <span class="eyebrow">СПИСОК</span>
+          <h2 id="chapterTitle">Глава 1</h2>
+        </div>
+        <span class="level-total" id="levelTotal">25 уровней</span>
+      </div>
+      <div class="level-list" id="levelList" aria-label="Уровни"></div>
+    </aside>
+
+    <section class="editor-panel">
+      <div class="editor-head">
+        <div>
+          <span class="eyebrow">РЕДАКТИРОВАНИЕ</span>
+          <h2 id="selectedTitle">Уровень 1</h2>
+        </div>
+        <span class="dimensions" id="dimensions"></span>
+      </div>
+
+      <section class="size-controls" aria-label="Размер игрового поля">
+        <div class="size-control-heading">
+          <span class="eyebrow">РАЗМЕР ПОЛЯ</span>
+          <span class="size-hint">От 5 до 21 клетки. Границы стен редактор выставит сам.</span>
+        </div>
+        <div class="size-control-fields">
+          <label>Ширина
+            <input id="widthInput" type="number" min="5" max="21" step="1" value="11">
+          </label>
+          <label>Высота
+            <input id="heightInput" type="number" min="5" max="21" step="1" value="9">
+          </label>
+          <button type="button" class="button secondary resize-button" id="resizeButton">Изменить размер</button>
+          <button type="button" class="button clear-button" id="clearBoardButton">Очистить поле</button>
+        </div>
+      </section>
+
+      <div class="board-scroll">
+        <div class="board" id="board" role="grid" aria-label="Игровое поле"></div>
+      </div>
+
+      <section class="palette-panel">
+        <div class="palette-head">
+          <h3>Кисти</h3>
+          <span>Левый клик — кисть · правый клик — стереть клетку</span>
+        </div>
+        <div class="palette" id="palette" role="toolbar" aria-label="Кисти редактора">
+          <button type="button" class="tool active" data-tool="floor"><span class="tool-icon tile-floor">□</span><span>Пол</span><kbd>1</kbd></button>
+          <button type="button" class="tool" data-tool="wall"><span class="tool-icon tile-wall">▧</span><span>Стена</span><kbd>2</kbd></button>
+          <button type="button" class="tool" data-tool="bush"><span class="tool-icon tile-bush">♣</span><span>Куст</span><kbd>3</kbd></button>
+          <button type="button" class="tool" data-tool="player"><span class="tool-icon tile-player">И</span><span>Ичи</span><kbd>4</kbd></button>
+          <button type="button" class="tool" data-tool="box"><span class="tool-icon tile-box">▣</span><span>Коробка</span><kbd>5</kbd></button>
+          <button type="button" class="tool" data-tool="goal"><span class="tool-icon tile-goal">✦</span><span>Подушечка</span><kbd>6</kbd></button>
+          <button type="button" class="tool" data-tool="bone"><span class="tool-icon tile-bone">🦴</span><span>Косточка</span><kbd>7</kbd></button>
+          <button type="button" class="tool" data-tool="pit"><span class="tool-icon tile-pit">●</span><span>Яма</span><kbd>8</kbd></button>
+        </div>
+      </section>
+
+      <div class="level-info">
+        <div>
+          <h3>Состав уровня</h3>
+          <p id="counts"></p>
+        </div>
+        <div class="validation" id="validation" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="button secondary" id="importJsonButton">Загрузить JSON</button>
+        <input id="importJsonInput" class="file-input" type="file" accept=".json,application/json" aria-label="Выбрать JSON уровней">
+        <button type="button" class="button secondary" id="resetButton">Сбросить главу</button>
+        <span class="action-spacer"></span>
+        <button type="button" class="button secondary" id="jsonButton">Скачать JSON</button>
+        <button type="button" class="button primary" id="jsButton">Скачать JS главы</button>
+      </div>
+      <p class="save-note" id="saveNote">Изменения сохраняются в этом браузере. Чтобы применить их в игре, скачай JS главы и замени соответствующий файл chapterN.generated.js в assets/js/.</p>
+    </section>
+  </main>
+</body>
+</html>

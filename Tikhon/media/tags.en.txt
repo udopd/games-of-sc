@@ -1,0 +1,1 @@
+puzzle, casual, cats, 2048, singleplayer
