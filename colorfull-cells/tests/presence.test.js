@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 test('presence disconnect immediately returns pawn to bot; coverage and effects are shared',async()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cells-presence-'));
- const child=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:'3330',DATA_DIR:dir},stdio:'ignore'});
+ const child=spawn(process.execPath,['server/index.js'],{env:{...process.env,WORLD_SEED:'none',PORT:'3330',DATA_DIR:dir},stdio:'ignore'});
  const api=async(route,body={})=>{const r=await fetch('http://localhost:3330/api/'+route,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return r.json();};
  try{
   for(let i=0;i<60;i++){try{await api('health');break;}catch{}await new Promise(r=>setTimeout(r,100));}

@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 test('real HTTP: eight slots, shared paint, server validation, bot replacement and persistence',async()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cells-test-'));const port=3328;
- const start=()=>spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:String(port),DATA_DIR:dir},stdio:['ignore','pipe','pipe']});let child=start();
+ const start=()=>spawn(process.execPath,['server/index.js'],{env:{...process.env,WORLD_SEED:'none',PORT:String(port),DATA_DIR:dir},stdio:['ignore','pipe','pipe']});let child=start();
  const wait=async()=>{for(let i=0;i<60;i++){try{if((await fetch(`http://localhost:${port}/api/health`)).ok)return;}catch{}await new Promise(r=>setTimeout(r,100));}throw Error('startup');};
  const api=async(route,body,token)=>{const r=await fetch(`http://localhost:${port}/api/${route}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,...(token?{session:token}:{})})});return {status:r.status,data:await r.json()};};
  try{await wait();const players=[];for(let i=0;i<8;i++){const r=await api('join',{});assert.equal(r.status,200);players.push(r.data);}assert.equal((await api('join',{})).status,409);const a=players[0],p=a.world.pawns[a.id];assert.equal((await api('action',{seq:1,type:'paint',color:5},a.token)).status,200);const missing=await api('state',{});assert.equal(missing.status,401);const s=await api('state',null,players[1].token);assert.equal(s.data.world.cells[p.y*100+p.x],5);assert.equal((await api('action',{seq:1,type:'paint',color:2},a.token)).status,409);await new Promise(r=>setTimeout(r,130));

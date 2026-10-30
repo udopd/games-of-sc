@@ -1,0 +1,12 @@
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {WorldStore} from './world-store.js';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const store=new WorldStore(process.env.DATA_DIR||path.join(root,'data'));
+const loaded=await store.load();
+if(!loaded)throw Error('No existing map. The game was not started.');
+const command=process.argv[2]||'backup';
+if(command==='backup')console.log(await store.backup(loaded.world)||'Latest backup already matches the map.');
+else if(command==='export-seed')console.log(await store.exportSeed(loaded.world,path.join(root,'server','initial-world.json.gz')));
+else if(command==='status')console.log(JSON.stringify({source:loaded.source,recovered:loaded.recovered,backups:(await store.entries()).length}));
+else throw Error('Use backup, export-seed or status.');

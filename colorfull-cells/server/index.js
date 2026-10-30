@@ -5,18 +5,22 @@ import os from 'node:os';
 import {fileURLToPath} from 'node:url';
 import {randomBytes} from 'node:crypto';
 import {World} from './world.js';
+import {WorldStore} from './world-store.js';
 import {WorldStream,executeCommand,enqueueCommands} from './sync.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dataDir=process.env.DATA_DIR||path.join(root,'data');
-let store=dataDir, saved;
+let store=dataDir;
 try{fs.mkdirSync(store,{recursive:true});fs.accessSync(store,fs.constants.W_OK);}catch{store=path.join(os.tmpdir(),'colorfull-cells');fs.mkdirSync(store,{recursive:true});console.warn('Using temporary world storage; mount DATA_DIR for durable container restarts.');}
-try{saved=JSON.parse(fs.readFileSync(path.join(store,'world.json'),'utf8'));}catch{}
-const world=new World(saved),sessions=new Map(),joins=new Map();
+const persistence=new WorldStore(store,{seedFile:process.env.WORLD_SEED==='none'?null:path.join(root,'server','initial-world.json.gz')});
+const loaded=await persistence.load();
+if(loaded?.recovered)console.warn('Map restored from '+loaded.source);
+const world=new World(loaded?.world),sessions=new Map(),joins=new Map();
 const stream=new WorldStream(world),watchers=new Set();
-function persist(){try{fs.writeFileSync(path.join(store,'world.tmp'),JSON.stringify(world.save()));fs.renameSync(path.join(store,'world.tmp'),path.join(store,'world.json'));}catch(e){console.error('World save failed:',e.message);}}
+async function persist(forceBackup=false){try{return await persistence.save(world.save(),{forceBackup});}catch(e){console.error('World save failed:',e.message);throw e;}}
+await persist(!loaded||loaded.recovered);
 function releaseSession(token){const s=sessions.get(token);if(!s)return;world.pawns[s.id].bot=true;sessions.delete(token);world.revision++;s.presence?.end();}
 function expire(){const now=Date.now();for(const [token,s]of sessions)if(now-s.seen>10000){releaseSession(token);}for(const [ip,v]of joins)if(now-v.at>60000)joins.delete(ip);}
-setInterval(()=>{expire();world.tick();},650);setInterval(persist,5000);
+setInterval(()=>{if(!stopping){expire();world.tick();}},650);setInterval(()=>{if(!stopping)persist().catch(()=>{});},5000);
 function writePacket(res,packet){if(res.destroyed)return false;if(res.writableLength>131072){res.destroy();return false;}return res.write('data: '+JSON.stringify(packet)+'\n\n');}
 function broadcast(){
   stream.refresh();
@@ -24,6 +28,7 @@ function broadcast(){
   for(const viewer of watchers)if(viewer.cursor!==stream.frame){writePacket(viewer.res,stream.packet(viewer.cursor));viewer.cursor=stream.frame;}
 }
 setInterval(()=>{
+  if(stopping)return;
   for(const s of sessions.values())if(s.queue?.length){
     const c=s.queue.shift(),before=new Set(world.effects.map(e=>e.id));
     const result=executeCommand(world,world.pawns[s.id],c);s.seq=c.seq;
@@ -96,6 +101,7 @@ const server=http.createServer(async(req,res)=>{
   const file=path.join(root,relative);try{const data=fs.readFileSync(file);res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':'no-store'});res.end(req.method==='HEAD'?undefined:data);}catch{res.writeHead(404);res.end();}
 });
 server.listen(Number(process.env.PORT)||1212,'0.0.0.0',()=>console.log(`Colorfull Cells: http://localhost:${server.address().port}`));
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{persist();server.close();process.exit(0);});
+let stopping=false;
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{if(stopping)return;stopping=true;server.close();try{await persist(true);process.exit(0);}catch{process.exit(1);}});
 
 

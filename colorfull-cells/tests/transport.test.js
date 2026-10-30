@@ -8,7 +8,7 @@ import vm from 'node:vm';
 const window={};vm.runInNewContext(fs.readFileSync(new URL('../assets/sync-client.js',import.meta.url),'utf8'),{window,structuredClone,Set,Map,Math,Infinity});
 test('real streaming protocol: queued steps, delayed HTTP receipt, delta acknowledgements, retry safety, quotas and disconnect',async()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cells-transport-'));
- const child=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:'3341',DATA_DIR:dir},stdio:'ignore'});
+ const child=spawn(process.execPath,['server/index.js'],{env:{...process.env,WORLD_SEED:'none',PORT:'3341',DATA_DIR:dir},stdio:'ignore'});
  const controller=new AbortController();let reader;
  const api=async(route,body={})=>{const r=await fetch('http://localhost:3341/api/'+route,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(5000)});return {status:r.status,data:await r.json()};};
  let buffer='';const decoder=new TextDecoder();

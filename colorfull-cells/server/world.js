@@ -19,7 +19,7 @@ export class World {
           this.restoreRegion(this.pawns[region.owner],region);
       }
     }
-    if(!this.bombs.length) for(let i=0;i<20;i++) this.spawn();
+    if(!saved&&!this.bombs.length) for(let i=0;i<20;i++) this.spawn();
   }
   restoreRegion(p,r){
     const {x1,y1,x2,y2}=r;
