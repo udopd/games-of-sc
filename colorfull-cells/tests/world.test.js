@@ -1,0 +1,9 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {World} from '../server/world.js';
+test('only cardinal single steps; boundaries and occupied cells',()=>{const w=new World(),p=w.pawns[0];p.x=0;p.y=0;assert.equal(w.move(p,-1,0),false);assert.equal(w.move(p,1,1),false);assert.equal(w.move(p,2,0),false);assert.equal(w.move(p,1,0),true);assert.equal(p.x,1);w.pawns[1].x=2;w.pawns[1].y=0;assert.equal(w.move(p,1,0),false);});
+test('paint and erase exactly the current cell; reject arbitrary colours',()=>{const w=new World(),p=w.pawns[0];assert.equal(w.paint(p,4),true);assert.equal(w.cells[p.y*100+p.x],4);assert.equal(w.paint(p,8),false);w.paint(p,-1);assert.equal(w.cells[p.y*100+p.x],-1);});
+test('bomb paints the inclusive Euclidean radius five and disappears',()=>{const w=new World(),p=w.pawns[0];w.cells.fill(-1);p.x=19;p.y=20;w.bombs=[{x:20,y:20,color:2}];w.move(p,1,0);assert.equal(w.bombs.length,0);assert.equal(w.cells.filter(c=>c===2).length,81);assert.equal(w.cells[20*100+25],2);assert.equal(w.cells[24*100+24],-1);assert.equal(w.effects.length,1);});
+test('bomb explosion is clipped safely at field edges',()=>{const w=new World(),p=w.pawns[0];p.x=0;p.y=1;w.bombs=[{x:0,y:0,color:3}];w.move(p,0,-1);assert.equal(w.cells.length,10000);assert.equal(w.cells[5],3);assert.equal(w.cells[6],-1);});
+test('world snapshot restores paint and pawn locations, human slots become bots',()=>{const w=new World(),p=w.pawns[0];p.bot=false;w.paint(p,2);const r=new World(JSON.parse(JSON.stringify(w.save())));assert.deepEqual(r.cells,w.cells);assert.equal(r.pawns[0].x,p.x);assert.ok(r.pawns.every(p=>p.bot));});
+test('bots keep moving and painting without connected people',()=>{const w=new World();const before=w.revision;for(let n=0;n<100;n++)w.tick(n*650);assert.ok(w.revision>before);assert.ok(w.cells.some(c=>c>=0));});

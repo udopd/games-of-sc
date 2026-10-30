@@ -11,6 +11,28 @@
       ui.drawerOpen ? ui.closeDrawer() : ui.openDrawer(),
     );
     on("drawerClose", "click", ui.closeDrawer);
+    const playControlsToggle = ui.byId("playControlsToggle");
+    const playDpad = ui.byId("playDpad");
+    const gameScreen = ui.byId("game");
+    const paintPlayControlsToggle = () => {
+      const expanded = playControlsToggle.getAttribute("aria-expanded") === "true";
+      const english = M.i18n?.language === "en";
+      playControlsToggle.textContent = `${english ? "arrows" : "стрелочки"} ${expanded ? "×" : "↓"} `;
+    };
+    paintPlayControlsToggle();
+    document.addEventListener("mochi:languagechange", paintPlayControlsToggle);
+    gameScreen.classList.toggle(
+      "touch-controls-open",
+      playControlsToggle.getAttribute("aria-expanded") === "true",
+    );
+    playControlsToggle.addEventListener("click", () => {
+      const expanded = playControlsToggle.getAttribute("aria-expanded") === "true";
+      const nextExpanded = !expanded;
+      playControlsToggle.setAttribute("aria-expanded", String(nextExpanded));
+      paintPlayControlsToggle();
+      playDpad.hidden = !nextExpanded;
+      gameScreen.classList.toggle("touch-controls-open", nextExpanded);
+    });
     const controlsToggle = ui.byId("mobileControlsToggle");
     const controlsBody = ui.byId("mobileControls");
     controlsToggle.addEventListener("click", () => {
@@ -102,6 +124,7 @@
         dy = event.clientY - touchStart.y;
       touchStart = null;
       if (Math.max(Math.abs(dx), Math.abs(dy)) > 15) {
+        if (gameScreen.classList.contains("touch-controls-open")) return;
         actions.step(
           Math.abs(dx) > Math.abs(dy)
             ? dx > 0

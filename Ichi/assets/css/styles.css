@@ -532,6 +532,7 @@ p {
 }
 
 .board-area {
+  gap:8px;
   min-width: 0;
   display: flex;
   align-items: center;
@@ -2994,5 +2995,311 @@ html[data-theme="dark"] #mainTitle span {
     min-height: 0;
     padding: 2px;
     font-size: clamp(8px, 2.8vw, 13px);
+  }
+}
+/* Foldable touch arrows directly below the game board on phones. */
+.mobile-play-controls {
+  display: none;
+}
+
+.mobile-play-controls-toggle {
+  min-width: 150px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 11px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 3px 4px 0 var(--ink);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.mobile-play-controls-toggle:active {
+  transform: translateY(2px);
+  box-shadow: 1px 2px 0 var(--ink);
+}
+
+.mobile-play-controls-toggle[aria-expanded="true"] {
+  background: #eddcc9;
+}
+
+.play-dpad[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .mobile-play-controls {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 0 6px;
+  }
+
+  .play-dpad {
+    grid-template-columns: repeat(3, 54px);
+    grid-template-rows: repeat(2, 46px);
+    gap: 6px;
+    margin: 0;
+  }
+
+  .play-dpad button {
+    min-width: 0;
+    min-height: 0;
+    font-size: 18px;
+  }
+}
+/* Larger movement arrows stay close to the board; the swipe hint returns when folded. */
+@media (max-width: 900px) {
+  .game-layout {
+    gap: 4px;
+  }
+
+  .mobile-play-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0;
+    padding: 0 0 4px;
+  }
+
+  .mobile-play-controls-toggle {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    font-size: 22px;
+    flex: 0 0 42px;
+  }
+
+  .play-dpad {
+    grid-template-columns: repeat(3, 64px);
+    grid-template-rows: repeat(2, 56px);
+    gap: 6px;
+  }
+
+  .play-dpad button {
+    font-size: 23px;
+    border-radius: 12px;
+  }
+
+  .game.touch-controls-open .board-area::after {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .play-dpad {
+    grid-template-columns: repeat(3, 58px);
+    grid-template-rows: repeat(2, 50px);
+    gap: 5px;
+  }
+
+  .mobile-play-controls {
+    gap: 6px;
+  }
+
+  .mobile-play-controls-toggle {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    flex-basis: 38px;
+  }
+}
+/* Center the touch pad in the open area below the board; park its toggle above-right. */
+@media (max-width: 900px) {
+  .game-layout {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    gap: 0;
+  }
+
+  .board-area {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  .board-frame {
+    max-height: max(100px, min(62dvh, calc(100dvh - 230px)));
+  }
+
+  .board-frame canvas {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: max(100px, min(62dvh, calc(100dvh - 230px)));
+  }
+
+  .mobile-play-controls {
+    position: relative;
+    flex: 1 1 0%;
+    min-height: 130px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0 0 4px;
+  }
+
+  .mobile-play-controls-toggle {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-play-controls {
+    min-height: 116px;
+  }
+}
+/* Keep a measurable board viewport and share the remaining height with the controls. */
+@media (max-width: 900px) {
+  .game-layout {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .board-area {
+    flex: 3 2 0%;
+    height: auto;
+    min-height: 0;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .board-frame {
+    max-height: 100%;
+  }
+
+  .board-frame canvas {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: 100%;
+  }
+
+  .mobile-play-controls {
+    flex: 2 1 0%;
+    min-height: 0;
+    overflow: visible;
+  }
+}
+/* Keep all four directional controls equally sized with consistent arrow strokes. */
+@media (max-width: 900px) {
+  .mobile-play-controls-toggle {
+    width: auto;
+    min-width: 0;
+    height: 34px;
+    min-height: 34px;
+    flex: 0 0 auto;
+    padding: 5px 9px;
+    white-space: nowrap;
+    font-family: "Press Start 2P", "Trebuchet MS", Arial, sans-serif;
+    font-size: 7px;
+  }
+
+  .play-dpad .up,
+  .play-dpad .down,
+  .play-dpad .left,
+  .play-dpad .right {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .play-dpad button svg {
+    display: block;
+    width: 28px;
+    height: 28px;
+    overflow: visible;
+  }
+
+  .play-dpad button svg path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-play-controls-toggle {
+    height: 32px;
+    min-height: 32px;
+    padding-inline: 7px;
+    font-size: 6px;
+  }
+}
+/* The drawer and mobile pad use the same centered arrow artwork. */
+.dpad button svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+
+.dpad button svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Center the board when touch arrows are folded and lift it smoothly when opened. */
+@media (max-width: 900px) {
+  .board-area {
+    transition: transform 280ms cubic-bezier(0.2, 0.84, 0.2, 1);
+    will-change: transform;
+  }
+
+  .game:not(.touch-controls-open) .board-area {
+    transform: translateY(33.3333%);
+  }
+
+  .game.touch-controls-open .board-area {
+    transform: translateY(0);
+  }
+
+  .mobile-play-controls-toggle {
+    transition: top 280ms cubic-bezier(0.2, 0.84, 0.2, 1);
+  }
+
+  .game:not(.touch-controls-open) .mobile-play-controls-toggle {
+    top: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 900px) {
+  .board-area {
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 900px) {
+  .mobile-play-controls-toggle {
+    transition: none;
   }
 }

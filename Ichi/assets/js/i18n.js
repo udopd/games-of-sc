@@ -86,6 +86,7 @@ names.push(
       [".side-description", "Push all the boxes onto the green cushions."], [".controls-card .side-head", "↗ CONTROLS"],
       ["#undoBtn", "↶ Undo"], ["#undoBtn", "Undo move (Z)", "title"], ["#restartBtn", "⟳"], ["#restartBtn", "Restart", "aria-label"], ["#restartBtn", "Restart (R)", "title"], ["#menuBtn", "▦ Level menu"],
       [".control-hint", '<span class="keys">W A S D</span> or <span class="keys">↑ ↓ ← →</span><br /><span class="keys">Z</span> undo · <span class="keys">R</span> restart', "html"],
+      [".mobile-play-controls", "On-screen movement controls", "aria-label"], ["#playControlsToggle", "Toggle on-screen movement buttons", "aria-label"], ["#playControlsToggle", "Toggle on-screen movement buttons", "title"],
       [".dpad", "On-screen controls", "aria-label"], [".dpad .up", "Up", "aria-label"], [".dpad .left", "Left", "aria-label"], [".dpad .down", "Down", "aria-label"], [".dpad .right", "Right", "aria-label"],
       [".helper", "Or swipe across the game board"], [".tip-card", '✿ Ichi says: Don’t push a box into a corner unless there’s a cushion there!'],
       [".cloud-status", "Guest mode"], [".drawer-foot", "ICHI AND THE LITTLE BOXES"], ["#closeDialog", "Close", "aria-label"]
@@ -102,6 +103,7 @@ names.push(
       for (const { el, mode, value } of originals.values()) { if (mode === "html") el.innerHTML = value; else if (mode) { if (value == null) el.removeAttribute(mode); else el.setAttribute(mode, value); } else el.textContent = value; }
     }
     uiController?.setLanguage?.();
+    document.dispatchEvent(new Event("mochi:languagechange"));
   }
   M.i18n = Object.freeze({ translate, setLanguage, bindUI(controller) { uiController = controller; }, levelName(index, russian) { return language === "en" ? names[index] : russian; }, get language() { return language; } });
 })(window.Mochi);

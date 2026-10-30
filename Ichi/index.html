@@ -132,6 +132,15 @@
                 ></canvas>
               </div>
             </div>
+            <section class="mobile-play-controls" aria-label="Экранное управление">
+              <button class="mobile-play-controls-toggle" id="playControlsToggle" type="button" aria-controls="playDpad" aria-expanded="true" aria-label="Переключить экранные кнопки управления" title="Переключить экранные кнопки управления">стрелочки ×</button>
+              <div class="dpad play-dpad" id="playDpad" aria-label="Экранные кнопки управления">
+                <button class="up" data-dir="U" aria-label="Вверх"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M5 11l7-7 7 7" /></svg></button
+                ><button class="left" data-dir="L" aria-label="Влево"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7" /></svg></button
+                ><button class="down" data-dir="D" aria-label="Вниз"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m7-7-7 7-7-7" /></svg></button
+                ><button class="right" data-dir="R" aria-label="Вправо"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7" /></svg></button>
+              </div>
+            </section>
           </div>
           <div class="game-footer">НЕ СПЕШИ. У ТЕБЯ ВСЁ ПОЛУЧИТСЯ ♡</div>
         </section>
@@ -213,10 +222,10 @@
                 отменить · <span class="keys">R</span> заново
               </div>
               <div class="dpad" aria-label="Экранное управление">
-                <button class="up" data-dir="U" aria-label="Вверх">↑</button
-                ><button class="left" data-dir="L" aria-label="Влево">←</button
-                ><button class="down" data-dir="D" aria-label="Вниз">↓</button
-                ><button class="right" data-dir="R" aria-label="Вправо">→</button>
+                <button class="up" data-dir="U" aria-label="Вверх"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M5 11l7-7 7 7" /></svg></button
+                ><button class="left" data-dir="L" aria-label="Влево"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7" /></svg></button
+                ><button class="down" data-dir="D" aria-label="Вниз"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m7-7-7 7-7-7" /></svg></button
+                ><button class="right" data-dir="R" aria-label="Вправо"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7" /></svg></button>
               </div>
               <div class="helper">Или свайпай по игровому полю</div>
             </div>

@@ -1,0 +1,15 @@
+services:
+  colorfull-cells:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "1212:3000"
+    environment:
+      PORT: 3000
+      DATA_DIR: /data
+    volumes:
+      - world:/data
+volumes:
+  world:
+
+
